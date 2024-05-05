@@ -20,21 +20,21 @@ public class PassengerController {
     }
 
     @PostMapping("")
-    public ResponseEntity<PassengerEntity> createPassenger(@RequestBody PassengerEntity passengerEntity){
-        PassengerEntity savedPassengerEntity = passengerService.save(passengerEntity);
-        return new ResponseEntity<>(savedPassengerEntity, HttpStatus.CREATED);
+    public ResponseEntity<Passenger> createPassenger(@RequestBody Passenger passenger){
+        Passenger savedPassenger = passengerService.save(passenger);
+        return new ResponseEntity<>(savedPassenger, HttpStatus.CREATED);
     }
 
     @GetMapping("")
-    public List<PassengerEntity> findAll(){
-        List<PassengerEntity> passengers = passengerService.findAll();
+    public List<Passenger> findAll(){
+        List<Passenger> passengers = passengerService.findAll();
         return passengers.stream()
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PassengerEntity> getPassenger(@PathVariable("id") Long id){
-        Optional<PassengerEntity> foundPassenger = passengerService.findOne(id);
+    public ResponseEntity<Passenger> getPassenger(@PathVariable("id") Long id){
+        Optional<Passenger> foundPassenger = passengerService.findOne(id);
         return foundPassenger.map(passenger ->
                         ResponseEntity.ok(passenger))
                 .orElse(ResponseEntity.notFound().build());
@@ -42,14 +42,14 @@ public class PassengerController {
 
 
     @PutMapping("/{id}")
-    ResponseEntity<PassengerEntity> fullUpdatePassenger(@Valid @RequestBody PassengerEntity passengerEntity,
+    ResponseEntity<Passenger> fullUpdatePassenger(@Valid @RequestBody Passenger passenger,
                                                @PathVariable("id") Long id) throws Exception {
         if (!passengerService.isExist(id)){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        passengerEntity.setId(id);
-        PassengerEntity savedPassengerEntity = passengerService.save(passengerEntity);
-        return ResponseEntity.ok(savedPassengerEntity);
+        passenger.setId(id);
+        Passenger savedPassenger = passengerService.save(passenger);
+        return ResponseEntity.ok(savedPassenger);
     }
 
     @DeleteMapping("/{id}")
@@ -59,7 +59,7 @@ public class PassengerController {
     }
 
     @GetMapping("/train/{trainId}")
-    public ResponseEntity<List<PassengerEntity>> findAllPassengers(@PathVariable("trainId") Long trainId){
+    public ResponseEntity<List<Passenger>> findAllPassengers(@PathVariable("trainId") Long trainId){
         return ResponseEntity.ok(passengerService.findAllPassengersByTrain(trainId));
     }
 }

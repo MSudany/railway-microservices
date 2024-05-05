@@ -8,17 +8,17 @@ import java.util.Optional;
 @Service
 public interface PassengerService {
 
-    PassengerEntity save(PassengerEntity passenger);
+    Passenger save(Passenger passenger);
 
-    List<PassengerEntity> findAll();
+    List<Passenger> findAll();
 
-    Optional<PassengerEntity> findOne(Long id);
+    Optional<Passenger> findOne(Long id);
 
     boolean isExist(Long id);
 
     void delete(Long id);
 
-    List<PassengerEntity> findAllPassengersByTrain(Long trainId);
+    List<Passenger> findAllPassengersByTrain(Long trainId);
 
 //    boolean seatExists(Long seatNumber);
 }

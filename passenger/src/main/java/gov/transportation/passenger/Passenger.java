@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "passengers")
-public class PassengerEntity {
+public class Passenger {
 
     @Id
     @SequenceGenerator(name="seq",sequenceName="passenger_seq")

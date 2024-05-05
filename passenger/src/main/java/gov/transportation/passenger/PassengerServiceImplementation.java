@@ -17,12 +17,12 @@ public class PassengerServiceImplementation implements PassengerService {
     }
 
     @Override
-    public PassengerEntity save(PassengerEntity passenger) {
+    public Passenger save(Passenger passenger) {
         return passengerRepository.save(passenger);
     }
 
     @Override
-    public List<PassengerEntity> findAll() {
+    public List<Passenger> findAll() {
         return StreamSupport
                 .stream(passengerRepository
                         .findAll()
@@ -31,7 +31,7 @@ public class PassengerServiceImplementation implements PassengerService {
     }
 
     @Override
-    public Optional<PassengerEntity> findOne(Long id) {
+    public Optional<Passenger> findOne(Long id) {
         return passengerRepository.findById(id);
     }
 
@@ -46,7 +46,7 @@ public class PassengerServiceImplementation implements PassengerService {
     }
 
     @Override
-    public List<PassengerEntity> findAllPassengersByTrain(Long trainId) {
+    public List<Passenger> findAllPassengersByTrain(Long trainId) {
         return passengerRepository.findAllPassengersByTrainId(trainId);
     }
 
