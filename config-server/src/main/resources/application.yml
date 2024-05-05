@@ -8,5 +8,5 @@ spring:
     config:
       server:
         git:
-         uri: https://github.com/MSudany/railway/
+         uri: https://github.com/MSudany/config-repo
          skipSslValidation: true

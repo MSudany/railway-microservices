@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 
-//@Component
 @FeignClient(name = "passengerService", url = "${application.config.passengers-url}")
 public interface PassengerClient {
     @GetMapping("/train/{trainId}")
