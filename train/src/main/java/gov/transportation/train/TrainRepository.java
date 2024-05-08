@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.time.LocalDateTime;
 
 @Repository
-public interface TrainRepository extends CrudRepository<TrainEntity, Long> {
-    Iterable<TrainEntity> departureIsAfter(LocalDateTime departure);
+public interface TrainRepository extends CrudRepository<Train, Long> {
+    Iterable<Train> departureIsAfter(LocalDateTime departure);
 }

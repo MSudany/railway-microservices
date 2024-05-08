@@ -16,12 +16,12 @@ public class TrainController {
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public void save(@RequestBody TrainEntity trainEntity) {
-        trainService.saveTrain(trainEntity);
+    public void save(@RequestBody Train train) {
+        trainService.saveTrain(train);
     }
 
     @GetMapping("")
-    public ResponseEntity<Iterable<TrainEntity>> findAllTrains(){
+    public ResponseEntity<Iterable<Train>> findAllTrains(){
         return ResponseEntity.ok(trainService.findAllPassengers());
     }
 

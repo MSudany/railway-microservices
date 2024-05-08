@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(name = "trains")
-public class TrainEntity {
+public class Train {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "train_id_seq")

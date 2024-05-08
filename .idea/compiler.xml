@@ -9,8 +9,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
         <module name="passenger" />
-        <module name="gateway" />
+        <module name="user" />
         <module name="discovery" />
+        <module name="gateway" />
         <module name="train" />
       </profile>
     </annotationProcessing>
@@ -22,6 +23,7 @@
       <module name="gateway" options="-parameters" />
       <module name="passenger" options="-parameters" />
       <module name="train" options="-parameters" />
+      <module name="user" options="-parameters" />
     </option>
   </component>
 </project>

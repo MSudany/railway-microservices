@@ -14,17 +14,17 @@ public class TrainServiceImplementation {
     private final TrainRepository trainRepository;
     private final PassengerClient passengerClient;
 
-    public void saveTrain(TrainEntity trainEntity){
-        trainRepository.save(trainEntity);
+    public void saveTrain(Train train){
+        trainRepository.save(train);
     }
 
-    public Iterable<TrainEntity> findAllPassengers(){
+    public Iterable<Train> findAllPassengers(){
         return trainRepository.findAll();
     }
 
     public FullTrain findTrainWithPassengers(Long trainId) {
-        TrainEntity train = trainRepository.findById(trainId)
-                .orElse(TrainEntity.builder()
+        Train train = trainRepository.findById(trainId)
+                .orElse(Train.builder()
                         .pick_up_location("NOT_FOUND")
                         .destination_location("NOT_FOUND")
                         .build());
@@ -33,6 +33,9 @@ public class TrainServiceImplementation {
                 .pick_up_location(train.getPick_up_location())
                 .destination_location(train.getDestination_location())
                 .departure(train.getDeparture())
+                .price(train.getPrice())
+                .n_class(train.getN_class())
+                .seats(train.getSeats())
                 .passengerList(passengers)
                 .build();
     }

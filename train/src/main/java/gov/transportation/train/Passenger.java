@@ -12,5 +12,5 @@ public class Passenger {
 
     private String name;
 
-    private TrainEntity train;
+    private Long trainId;
 }

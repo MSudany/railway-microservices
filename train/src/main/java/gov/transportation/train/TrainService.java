@@ -8,11 +8,11 @@ import java.util.Optional;
 @Service
 public interface TrainService {
 
-    TrainEntity save(TrainEntity trainEntity);
+    Train save(Train train);
 
-    List<TrainEntity> findAll();
+    List<Train> findAll();
 
-    Optional<TrainEntity> findOne(Long id);
+    Optional<Train> findOne(Long id);
 
     boolean isExist(Long id);
 
