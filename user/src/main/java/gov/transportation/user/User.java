@@ -1,32 +1,31 @@
 package gov.transportation.user;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "users")
 public class User {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Size(max = 100)
     private String firstName;
-
-    @Size(max = 100)
     private String lastName;
-
-    @Size(max = 100)
-    private String login;
-
-    @Size(max = 100)
+    private String email;
     private String password;
+    @ManyToMany(fetch = FetchType.EAGER,
+            cascade = {CascadeType.PERSIST,
+                    CascadeType.MERGE, CascadeType.DETACH})
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles = new HashSet<>();
 }

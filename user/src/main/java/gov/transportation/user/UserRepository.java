@@ -1,6 +1,5 @@
-package gov.transportation.user.repositories;
+package gov.transportation.user;
 
-import gov.transportation.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,6 +7,9 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+    boolean existsByEmail(String email);
 
-    Optional<User> findByLogin(String login);
+    void deleteByEmail(String email);
+
+    Optional<User> findByEmail(String email);
 }
