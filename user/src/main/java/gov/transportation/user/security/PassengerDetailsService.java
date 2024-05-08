@@ -1,6 +1,6 @@
 package gov.transportation.user;
 
-import gov.transportation.user.Security.PassengerDetails;
+import gov.transportation.user.security.PassengerDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
