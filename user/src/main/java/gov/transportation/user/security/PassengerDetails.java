@@ -1,4 +1,4 @@
-package gov.transportation.user.Security;
+package gov.transportation.user.security;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

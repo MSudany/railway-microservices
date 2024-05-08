@@ -1,4 +1,4 @@
-package gov.transportation.user.security;
+package gov.transportation.user.jwt;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

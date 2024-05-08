@@ -1,7 +1,7 @@
 package gov.transportation.user.jwt;
 
-import gov.transportation.user.jwt.JwtUtils.JwtUtils;
 import gov.transportation.user.security.PassengerDetails;
+import gov.transportation.user.security.PassengerDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,7 +23,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     private JwtUtils jwtUtils;
 
     @Autowired
-    private PassengerDetails passengerDetailsService;
+    private PassengerDetailsService passengerDetailsService;
     private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
     @Override
     protected void doFilterInternal(HttpServletRequest request,

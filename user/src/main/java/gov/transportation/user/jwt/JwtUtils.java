@@ -1,4 +1,4 @@
-package gov.transportation.user.jwt.JwtUtils;
+package gov.transportation.user.jwt;
 
 import gov.transportation.user.security.PassengerDetails;
 import io.jsonwebtoken.*;
@@ -26,7 +26,7 @@ public class JwtUtils {
     private int jwtExpirationMs;
 
     public String generateJwtTokenForUser(Authentication authentication){
-        HotelUserDetails userPrincipal = (HotelUserDetails) authentication.getPrincipal();
+        PassengerDetails userPrincipal = (PassengerDetails) authentication.getPrincipal();
         List<String> roles = userPrincipal.getAuthorities()
                 .stream()
                 .map(GrantedAuthority::getAuthority).toList();
@@ -62,6 +62,5 @@ public class JwtUtils {
         }
         return false;
     }
-
 
 }

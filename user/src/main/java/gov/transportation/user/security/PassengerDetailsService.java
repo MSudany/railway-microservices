@@ -1,6 +1,7 @@
-package gov.transportation.user;
+package gov.transportation.user.security;
 
-import gov.transportation.user.security.PassengerDetails;
+import gov.transportation.user.User;
+import gov.transportation.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,7 +14,7 @@ public class PassengerDetailsService implements UserDetailsService {
     private final UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public PassengerDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email).orElseThrow(()-> new UsernameNotFoundException("User not found"));
         return PassengerDetails.buildPassengerDetails(user);
     }
