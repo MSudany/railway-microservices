@@ -1,4 +1,4 @@
-package gov.transportation.user;
+package gov.transportation.user.Security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
